@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import {Server} from 'socket.io';
+import { Server } from 'socket.io';
 import http from 'http';
 import dotenv from 'dotenv';
 
@@ -18,7 +18,7 @@ import authRoutes from './routes/auth.js';
 const app = express();
 
 app.use(express.json());
-app.use(bodyParser.json({limit: "30mb", extended: true}));
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use('/auth', authRoutes);
@@ -32,29 +32,31 @@ const io = new Server(server, {
     }
 });
 
-io.on("connection", (socket) =>{
+io.on("connection", (socket) => {
     console.log("User connected");
 
     roomHandler(socket);
 
-    socket.on('disconnect', ()=>{
+    socket.on('disconnect', () => {
         console.log("user disconnected");
     })
 
 })
-const PORT = 6001;
-mongoose.connect('mongodb://localhost:27017/meet-app', {
+const PORT = process.env.PORT || 6001;
+const MONGO_URL = process.env.MONGODB_URI || 'mongodb://localhost:27017/meet-app';
+
+mongoose.connect(MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}).then(()=>{
+}).then(() => {
 
 
-    server.listen(PORT, ()=>{
+    server.listen(PORT, () => {
         console.log(`Running @ ${PORT}`);
     });
 
 
-}).catch((err)=>{
+}).catch((err) => {
     console.log("Error: ", err);
 })
 
