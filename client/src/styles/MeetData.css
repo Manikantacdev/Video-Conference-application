@@ -1,0 +1,271 @@
+/* Meet Data Styles - Premium Glass Theme */
+.myMeets-body {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 30px;
+    min-height: 500px;
+}
+
+.myMeets-body-nav {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+}
+
+.myMeets-body-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 40px;
+}
+
+.myMeets-body-nav li {
+    cursor: pointer;
+    padding-bottom: 15px;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+    font-weight: 500;
+}
+
+.myMeets-body-nav li:hover {
+    color: white;
+}
+
+/* Active Tab Styling handled via JS inline styles usually, but ensuring default visibility */
+.myMeets-body-nav li.active {
+    color: var(--color-secondary, #0ea5e9);
+    border-bottom-color: var(--color-secondary, #0ea5e9);
+}
+
+.myMeets-body-content {
+    min-height: 300px;
+}
+
+.upcomming-meet-content,
+.past-meet-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Empty State */
+.myMeets-body-content h3 {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.2rem;
+}
+
+/* Meet Cards */
+.upcomming-meet-card,
+.past-meet-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 25px;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.upcomming-meet-card:hover,
+.past-meet-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.details-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.meet-card-details p {
+    margin: 8px 0;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.meet-card-details span {
+    color: var(--color-secondary, #0ea5e9);
+    font-weight: 600;
+}
+
+/* Buttons */
+.meet-card-controls {
+    display: flex;
+    gap: 12px;
+}
+
+.joinBtn,
+.editBtn,
+.deleteBtn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: filter 0.2s;
+    font-size: 0.9rem;
+}
+
+.joinBtn {
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+    color: white;
+}
+
+.editBtn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.deleteBtn {
+    background: rgba(255, 50, 50, 0.2);
+    color: #ff6b6b;
+    border: 1px solid rgba(255, 50, 50, 0.3);
+}
+
+.joinBtn:hover,
+.editBtn:hover,
+.deleteBtn:hover {
+    filter: brightness(1.2);
+}
+
+/* Timings */
+.meet-card-timings h4 {
+    margin: 0 0 12px 0;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.meet-card-timings-details {
+    display: flex;
+    gap: 30px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.meet-card-timings-details p {
+    margin: 0;
+    font-size: 1rem;
+    color: white;
+}
+
+.meet-card-timings-details span {
+    color: var(--color-accent, #ec4899);
+    font-weight: 500;
+    margin-right: 8px;
+}
+
+.myMeets-body-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    gap: 30px;
+}
+
+.myMeets-body-nav li {
+    cursor: pointer;
+    padding-bottom: 10px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.myMeets-body-nav li:hover {
+    opacity: 1;
+}
+
+.myMeets-body-content {
+    min-height: 300px;
+}
+
+.upcomming-meet-content,
+.past-meet-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.upcomming-meet-card,
+.past-meet-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.details-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.meet-card-details p {
+    margin: 5px 0;
+}
+
+.meet-card-details span {
+    color: #4a90d9;
+    font-weight: 500;
+}
+
+.meet-card-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.joinBtn,
+.editBtn,
+.deleteBtn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.joinBtn {
+    background: #4a90d9;
+    color: white;
+}
+
+.editBtn {
+    background: #ffc107;
+    color: #333;
+}
+
+.deleteBtn {
+    background: #dc3545;
+    color: white;
+}
+
+.meet-card-timings h4 {
+    margin: 0 0 10px 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.meet-card-timings-details {
+    display: flex;
+    gap: 20px;
+}
+
+.meet-card-timings-details p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.meet-card-timings-details span {
+    color: #4a90d9;
+}

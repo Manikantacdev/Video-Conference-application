@@ -1,0 +1,203 @@
+/* Login & Register Styles - Glassmorphism Theme */
+.formContainer {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+/* Header */
+.smart-header {
+    width: 100%;
+    padding: 20px 5%;
+    display: flex;
+    align-items: center;
+}
+
+.smart-logo h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(to right, #fff, var(--color-secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+#smart-logo-h2 {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Form Card */
+.formWrapper {
+    background: rgba(20, 20, 40, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 50px 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 420px;
+    margin-top: 60px;
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.formWrapper .title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    display: block;
+    text-align: center;
+    margin-bottom: 35px;
+    color: #ffffff;
+    font-family: var(--font-heading);
+}
+
+.formWrapper form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formWrapper .mb-3 {
+    margin-bottom: 22px;
+}
+
+.formWrapper .form-label {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    display: block;
+}
+
+/* Input Fields - Key Fix for Visibility */
+.formWrapper .form-control {
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 12px;
+    color: #ffffff !important;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.formWrapper .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.formWrapper .form-control:focus {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-color: var(--color-primary) !important;
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.2) !important;
+    outline: none;
+    color: #ffffff !important;
+}
+
+/* Submit Button */
+.formWrapper button[type="submit"] {
+    margin-top: 25px;
+    padding: 14px 20px;
+    width: 100%;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+}
+
+.formWrapper button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);
+}
+
+.formWrapper button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Footer Link */
+.formWrapper p {
+    text-align: center;
+    margin-top: 30px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+}
+
+.formWrapper p a {
+    color: var(--color-secondary);
+    font-weight: 600;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.formWrapper p a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* Decorative Elements */
+.formContainer::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.formContainer::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .formWrapper {
+        padding: 40px 25px;
+        margin-top: 40px;
+    }
+
+    .formWrapper .title {
+        font-size: 1.8rem;
+    }
+
+    .smart-header {
+        justify-content: center;
+    }
+}

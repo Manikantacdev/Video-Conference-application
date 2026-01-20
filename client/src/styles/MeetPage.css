@@ -1,0 +1,521 @@
+/* Meet Page Styles - Premium Glass Theme */
+.meetPage {
+    min-height: 100vh;
+    /* Background handled by App wrapper */
+    position: relative;
+    overflow: hidden;
+}
+
+.meetPage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.meetPage-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.meetPage-header h3 span {
+    color: var(--color-secondary, #0ea5e9);
+    font-weight: 700;
+}
+
+#meet-id-copy {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#meet-id-copy:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.meetPage-videoPlayer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px 100px;
+    /* Space for header and controls */
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+.videoPlayer-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.videoplayer-video {
+    position: relative;
+    background: black;
+    border-radius: 20px;
+    overflow: hidden;
+    min-width: 320px;
+    min-height: 240px;
+    flex: 1 1 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.videoplayer-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.videoplayer-video p {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Floating Control Bar */
+.meetPage-controls-part {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+}
+
+.controls-page {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(20, 20, 40, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 12px 25px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.controllers-video-part {
+    display: flex;
+    gap: 12px;
+}
+
+.controllers-chat-participants {
+    display: flex;
+    gap: 12px;
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    padding-left: 20px;
+}
+
+/* Control Buttons */
+.controls-page button {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+}
+
+.controls-page button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Active/Danger States */
+.controls-page button.active {
+    background: var(--color-primary, #a855f7);
+    color: white;
+}
+
+.controls-page button.danger {
+    background: #ef4444;
+    color: white;
+}
+
+.controls-page button.danger:hover {
+    background: #dc2626;
+}
+
+/* Panels */
+.participants-page,
+.chats-page {
+    position: fixed;
+    top: 80px;
+    right: -400px;
+    width: 350px;
+    height: calc(100vh - 110px);
+    background: rgba(20, 20, 40, 0.85);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    transition: right 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 15;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.participants-page.active,
+.chats-page.active {
+    right: 20px;
+}
+
+.participants-page h3,
+.chats-page h3 {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.participants-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+}
+
+.participant {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+
+.participant:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.participant-logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Chat Styles */
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-messages-box {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 5px;
+}
+
+.message-body {
+    background: rgba(255, 255, 255, 0.06);
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sender-name {
+    font-size: 0.8rem;
+    color: var(--color-secondary, #0ea5e9);
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.message {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.send-messages-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.send-messages-box input[type="text"] {
+    flex: 1;
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    color: white;
+    outline: none;
+}
+
+.send-messages-box button {
+    background: var(--color-primary, #a855f7);
+    width: 40px;
+    height: 40px;
+    padding: 0;
+}
+
+.send-messages-box button:hover {
+    background: var(--color-accent, #ec4899);
+}
+
+.meetPage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.meetPage-header h3 span {
+    color: #4a90d9;
+}
+
+#meet-id-copy {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family: monospace;
+}
+
+.meetPage-videoPlayer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 70vh;
+}
+
+.videoPlayer-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.videoplayer-video {
+    position: relative;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    min-width: 300px;
+    min-height: 200px;
+}
+
+.videoplayer-video p {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0;
+}
+
+.meetPage-controls-part {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.controls-page {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 30px;
+    border-radius: 50px;
+}
+
+.controllers-video-part {
+    display: flex;
+    gap: 10px;
+}
+
+.controllers-chat-participants {
+    display: flex;
+    gap: 10px;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    padding-left: 15px;
+}
+
+.controllers-chat-participants button {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+}
+
+/* Participants Panel */
+.participants-page {
+    position: fixed;
+    top: 80px;
+    right: -25vw;
+    width: 22vw;
+    min-width: 280px;
+    height: calc(100vh - 100px);
+    background: rgba(26, 26, 46, 0.95);
+    border-radius: 10px;
+    padding: 20px;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+}
+
+.participants-page h3 {
+    margin-bottom: 10px;
+}
+
+#h3-hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
+}
+
+.participants-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.participant {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.participant-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #4a90d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.participant h4 {
+    margin: 0;
+}
+
+/* Chat Panel */
+.chats-page {
+    position: fixed;
+    top: 80px;
+    right: -25vw;
+    width: 22vw;
+    min-width: 300px;
+    height: calc(100vh - 100px);
+    background: rgba(26, 26, 46, 0.95);
+    border-radius: 10px;
+    padding: 20px;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-messages-box {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+.message-body {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.sender-name {
+    font-size: 0.8rem;
+    color: #4a90d9;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.message {
+    margin: 0;
+}
+
+.send-messages-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.send-messages-box input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.send-messages-box input[type="file"] {
+    display: none;
+}
+
+.send-messages-box label,
+.send-messages-box button {
+    background: #4a90d9;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+}
