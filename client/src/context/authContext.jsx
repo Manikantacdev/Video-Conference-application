@@ -5,47 +5,47 @@ import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
-export const AuthContextProvider = ({children}) =>{
+export const AuthContextProvider = ({ children }) => {
 
     const navigate = useNavigate();
 
 
-    const login = async (inputs) =>{
+    const login = async (inputs) => {
 
-        try{
-            await axios.post('http://localhost:6001/auth/login', inputs)
-            .then( async (res)=>{
-                await localStorage.setItem('userToken', res.data.token);
-                await localStorage.setItem('userId', res.data.user._id);
-                await localStorage.setItem('userName', res.data.user.username);
-                await localStorage.setItem('userEmail', res.data.user.email);
-                navigate('/');
-            }).catch((err) =>{
-                console.log(err);
-            });
+        try {
+            await axios.post('https://video-conference-application.onrender.com/auth/login', inputs)
+                .then(async (res) => {
+                    await localStorage.setItem('userToken', res.data.token);
+                    await localStorage.setItem('userId', res.data.user._id);
+                    await localStorage.setItem('userName', res.data.user.username);
+                    await localStorage.setItem('userEmail', res.data.user.email);
+                    navigate('/');
+                }).catch((err) => {
+                    console.log(err);
+                });
 
-        }catch(err){
+        } catch (err) {
             console.log(err);
         }
     }
 
 
 
-    const register = async (inputs) =>{
+    const register = async (inputs) => {
 
-        try{
-            await axios.post('http://localhost:6001/auth/register', inputs)
-            .then( async (res)=>{
-                await localStorage.setItem('userToken', res.data.token);
-                await localStorage.setItem('userId', res.data.user._id);
-                await localStorage.setItem('userName', res.data.user.username);
-                await localStorage.setItem('userEmail', res.data.user.email);
-                navigate('/');
-            }).catch((err) =>{
-                console.log(err);
-            });
+        try {
+            await axios.post('https://video-conference-application.onrender.com/auth/register', inputs)
+                .then(async (res) => {
+                    await localStorage.setItem('userToken', res.data.token);
+                    await localStorage.setItem('userId', res.data.user._id);
+                    await localStorage.setItem('userName', res.data.user.username);
+                    await localStorage.setItem('userEmail', res.data.user.email);
+                    navigate('/');
+                }).catch((err) => {
+                    console.log(err);
+                });
 
-        }catch(err){
+        } catch (err) {
             console.log(err);
         }
     }
@@ -53,7 +53,7 @@ export const AuthContextProvider = ({children}) =>{
 
 
 
-    const logout = async () =>{
+    const logout = async () => {
         await localStorage.setItem('userToken', null);
         await localStorage.setItem('userId', null);
         await localStorage.setItem('userName', null);
@@ -62,10 +62,10 @@ export const AuthContextProvider = ({children}) =>{
     }
 
 
-    
 
-    return(
-        <AuthContext.Provider value={{login, register, logout}}>{children}</AuthContext.Provider>
+
+    return (
+        <AuthContext.Provider value={{ login, register, logout }}>{children}</AuthContext.Provider>
     )
 
 

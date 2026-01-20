@@ -6,7 +6,7 @@ import { useClient } from '../AgoraSetup'
 
 export const SocketContext = createContext();
 
-const WS = 'http://localhost:6001';
+const WS = 'https://video-conference-application.onrender.com';
 
 const socket = socketIoClient(WS);
 
