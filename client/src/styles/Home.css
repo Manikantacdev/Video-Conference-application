@@ -47,6 +47,58 @@
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
+/* Sign Up Button */
+.btn-signup {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
+.btn-signup:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.5);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Hero Buttons Container */
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Secondary Outline Button */
+.btn-secondary-outline {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 14px 36px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-secondary);
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+}
+
 .glass-dropdown {
     width: 200px;
     margin-top: 10px;

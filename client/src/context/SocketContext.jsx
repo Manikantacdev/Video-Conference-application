@@ -8,7 +8,14 @@ export const SocketContext = createContext();
 
 const WS = 'https://video-conference-application.onrender.com';
 
-const socket = socketIoClient(WS);
+const socket = socketIoClient(WS, {
+  transports: ['websocket', 'polling'],
+  reconnection: true,
+  reconnectionAttempts: 5,
+  reconnectionDelay: 1000,
+  upgrade: true,
+  forceNew: true,
+});
 
 
 
@@ -39,6 +46,14 @@ export const SocketContextProvider = ({ children }) => {
   const [newMeetType, setNewMeetType] = useState('');
 
   useEffect(() => {
+    // Socket connection event handlers for debugging
+    socket.on('connect', () => {
+      console.log('Socket connected successfully');
+    });
+
+    socket.on('connect_error', (error) => {
+      console.error('Socket connection error:', error.message);
+    });
 
     socket.on('room-created', ({ roomId, meetType }) => {
 
@@ -51,6 +66,13 @@ export const SocketContextProvider = ({ children }) => {
       }
 
     });
+
+    // Cleanup listeners on unmount
+    return () => {
+      socket.off('connect');
+      socket.off('connect_error');
+      socket.off('room-created');
+    };
 
   }, [socket]);
 

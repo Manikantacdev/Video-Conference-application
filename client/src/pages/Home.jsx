@@ -96,7 +96,10 @@ const Home = () => {
 
       <motion.div initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className="nav-actions">
         {!isLoggedIn ? (
-          <button className="btn-glass" onClick={() => navigate('/login')}>Login</button>
+          <>
+            <button className="btn-glass" onClick={() => navigate('/login')}>Login</button>
+            <button className="btn-signup" onClick={() => navigate('/register')}>Sign Up</button>
+          </>
         ) : (
           <Dropdown align="end">
             <Dropdown.Toggle id="dropdown-custom" className="user-dropdown-toggle">
@@ -207,9 +210,14 @@ const Home = () => {
                 Seamless collaboration, crystal-clear audio, and HD video.
                 <br /><strong>Free. Secure. Limitless.</strong>
               </motion.p>
-              <motion.button variants={itemVariants} className="btn-primary-glow" onClick={() => navigate('/login')}>
-                Get Started
-              </motion.button>
+              <div className="hero-buttons">
+                <motion.button variants={itemVariants} className="btn-primary-glow" onClick={() => navigate('/login')}>
+                  Get Started
+                </motion.button>
+                <motion.button variants={itemVariants} className="btn-secondary-outline" onClick={() => navigate('/register')}>
+                  Sign Up Free
+                </motion.button>
+              </div>
             </motion.div>
 
             <motion.div
